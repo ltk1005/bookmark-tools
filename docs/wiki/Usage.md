@@ -83,8 +83,10 @@ Nếu trang web trong iframe không load đúng:
 
 | Phím | Chức năng |
 |------|-----------|
-| `Ctrl + Shift + Y` | Toggle feature (Windows/Mac) |
-| `Ctrl + Shift + U` | Toggle feature (Linux) |
+| `Ctrl + Shift + Y` | Kích hoạt/tắt tính năng mở rộng (Windows/Mac) |
+| `Ctrl + Shift + U` | Kích hoạt/tắt tính năng mở rộng (Linux) |
+
+> **Lưu ý:** Phím tắt được định nghĩa trong `manifest.json` và có thể được tùy chỉnh cho các tính năng mở rộng của ứng dụng.
 
 ## 📱 Sử dụng trên Mobile
 

@@ -160,11 +160,13 @@ group_id: "online_tools"
 group_id: "my_docs"
 group_id: "group1"
 
-// ❌ Sai
-group_id: "online tools"  // Có khoảng trắng
-group_id: "my-docs"       // Có dấu gạch ngang
-group_id: "nhóm 1"        // Có tiếng Việt và khoảng trắng
+// ❌ Sai (trong ứng dụng này)
+group_id: "online tools"  // Có khoảng trắng - gây lỗi với DOM id
+group_id: "my-docs"       // Có dấu gạch ngang - không khuyến khích với CSS selector
+group_id: "nhóm 1"        // Có tiếng Việt và khoảng trắng - gây lỗi encoding
 ```
+
+> **Lý do:** `group_id` được sử dụng làm ID cho phần tử DOM (`id="group-${group_id}"`), nên cần tuân thủ quy tắc đặt tên ID trong HTML/CSS để tránh các vấn đề với JavaScript và CSS selector.
 
 ### 2. Khi nào dùng `target: '_blank'`
 
