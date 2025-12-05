@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "version": "0.1",
+  "default_locale": "en",
+  "name": "Danh sách URL",
+  "short_name": "index",
+  "start_url": "/index.html",
+  "description": "Docs Tech",
+  "display_override": [
+    "window-control-overlay",
+    "minimal-ui"
+  ],
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d6efd",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "/assets/imgs/brand/nhquydev-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "splash_pages": null,
+  "permissions": [
+    "webNavigation"
+  ],
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "linux": "Ctrl+Shift+U"
+      },
+      "description": "Send a 'toggle-feature' event"
+    }
+  }
+}
