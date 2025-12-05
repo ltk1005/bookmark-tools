@@ -4,10 +4,10 @@ run-name: "Deploy to GitHub Pages for ${{ github.event.release.tag_name }}"
 on:
   workflow_dispatch: # ✅ Cho phép chạy thủ công
   repository_dispatch: # ✅ Cho phép kích hoạt từ bên ngoài (ví dụ: từ một workflow khác)
-  # release:
-  #   # created : # ✅ Chỉ chạy khi release được tạo
-  #   # published: # ✅ Chỉ chạy khi release được phát hành
-  #   types: [published] # ✅ Chỉ chạy khi release được phát hành
+  release:
+    # created : # ✅ Chỉ chạy khi release được tạo
+    # published: # ✅ Chỉ chạy khi release được phát hành
+    types: [published] # ✅ Chỉ chạy khi release được phát hành
 
 # Remove all permissions by default
 permissions: write-all # ⚠️ Nếu không cần ghi tất cả, bạn nên dùng principle of least privilege
