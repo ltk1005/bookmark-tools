@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap");
+
+:root {
+  --primary-color-50: 235 240 251;
+}
+
+body {
+  font-family: "Lato";
+  /* font-size: 28px; */
+  font-weight: 700;
+}
