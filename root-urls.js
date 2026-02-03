@@ -34,6 +34,12 @@ const urls = [
         title: "Cách tải xuống video và Reels Facebook một cách dễ dàng",
         target: '_blank',
       },
-    ]
+      {
+        name: "Download video",
+        path: "https://downloadvideo.vn/vi",
+        title: "Tải video từ nhiều nền tảng như YouTube, Facebook, TikTok...",
+        target: '_blank',
+      },
+    ],
   },
 ];
