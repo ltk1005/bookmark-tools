@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Google Fonts: Inter for modern typography -->
     <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet">
-    <style>
+    <style rel="stylesheet">
       html,
       body,
       .container-fluid,
@@ -313,6 +313,247 @@
         }
       }
     </style>
+
+    <style rel="stylesheet">
+      /* Context Menu */
+      .context-menu {
+        position: fixed;
+        background: #fff;
+        border: 1px solid #e1e7ef;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        min-width: 180px;
+        padding: 6px 0;
+        display: none;
+      }
+
+      .context-menu-header {
+        padding: 8px 12px 6px 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e9eef3;
+        margin-bottom: 4px;
+      }
+
+      .context-menu-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #7a8296;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .context-menu-close {
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        color: #bfcada;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        transition: background 0.15s, color 0.15s;
+        padding: 0;
+        line-height: 1;
+      }
+
+      .context-menu-close:hover {
+        background: #f2f7ff;
+        color: #3467eb;
+      }
+
+      .context-menu-item {
+        padding: 10px 16px;
+        cursor: pointer;
+        transition: background 0.15s;
+        font-size: 0.95rem;
+        color: #182433;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .context-menu-item:hover {
+        background: #f2f7ff;
+        color: #3467eb;
+      }
+
+      .context-menu-item i {
+        width: 16px;
+        text-align: center;
+        color: #3467eb;
+      }
+
+      .context-menu-divider {
+        height: 1px;
+        background: #e1e7ef;
+        margin: 6px 0;
+      }
+
+      /* Hint Modal */
+      .hint-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hint-modal.show {
+        display: flex;
+      }
+
+      .hint-modal-content {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        width: 90%;
+        max-height: 80vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hint-modal-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e1e7ef;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .hint-modal-header h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #182433;
+      }
+
+      .hint-modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #bfcada;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        transition: background 0.15s, color 0.15s;
+      }
+
+      .hint-modal-close:hover {
+        background: #f2f7ff;
+        color: #3467eb;
+      }
+
+      .hint-modal-body {
+        padding: 24px;
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      .hint-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .hint-table th {
+        background: #f8fafb;
+        padding: 12px 16px;
+        text-align: left;
+        font-weight: 600;
+        color: #182433;
+        border-bottom: 2px solid #e1e7ef;
+        font-size: 0.95rem;
+      }
+
+      .hint-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e9eef3;
+        color: #232c4f;
+        font-size: 0.94rem;
+      }
+
+      .hint-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .hint-table tr:hover {
+        background: #f8fafb;
+      }
+
+      .hint-link {
+        color: #3467eb;
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .hint-link:hover {
+        text-decoration: underline;
+      }
+
+      .no-hints-message {
+        text-align: center;
+        padding: 40px 20px;
+        color: #bfcada;
+        font-size: 1rem;
+      }
+
+      .hint-metadata {
+        background: #f8fafb;
+        border: 1px solid #e1e7ef;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 20px;
+      }
+
+      .hint-metadata-item {
+        margin-bottom: 12px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .hint-metadata-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .hint-metadata-label {
+        font-weight: 600;
+        color: #7a8296;
+        min-width: 70px;
+        font-size: 0.9rem;
+      }
+
+      .hint-metadata-value {
+        color: #182433;
+        font-size: 0.94rem;
+        word-break: break-all;
+        flex: 1;
+      }
+
+      .hint-metadata-link {
+        color: #3467eb;
+        text-decoration: none;
+      }
+
+      .hint-metadata-link:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
 
   <body>
@@ -346,6 +587,49 @@
       </main>
     </div>
 
+    <!-- Context Menu -->
+    <div id="contextMenu" class="context-menu">
+      <div class="context-menu-header">
+        <span class="context-menu-title">Options</span>
+        <button class="context-menu-close" id="closeContextMenu" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="context-menu-item" id="showHintMenuItem">
+        <i class="fas fa-info-circle"></i>
+        <span>Show Hint</span>
+      </div>
+      <div class="context-menu-divider"></div>
+      <div class="context-menu-item" id="openNewTabMenuItem">
+        <i class="fas fa-external-link-alt"></i>
+        <span>Open in New Tab</span>
+      </div>
+      <div class="context-menu-item" id="copyLinkMenuItem">
+        <i class="fas fa-copy"></i>
+        <span>Copy Link</span>
+      </div>
+      <div class="context-menu-divider"></div>
+      <div class="context-menu-item" id="openDevToolsMenuItem">
+        <i class="fas fa-code"></i>
+        <span>Open DevTools</span>
+      </div>
+    </div>
+
+    <!-- Hint Modal -->
+    <div id="hintModal" class="hint-modal">
+      <div class="hint-modal-content">
+        <div class="hint-modal-header">
+          <h3 id="hintModalTitle">Hints</h3>
+          <button class="hint-modal-close" id="closeHintModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="hint-modal-body" id="hintModalBody">
+          <!-- Hints will be inserted here -->
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts & Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -361,7 +645,8 @@
       };
       document.head.appendChild(script);
     </script>
-    <script>
+
+    <script type="text/javascript">
       let allLinkElements = [];
       const $urlList = $('#url-list');
       const $iframe = $('#content-frame');
@@ -442,6 +727,8 @@
               .attr({
                 'data-path': dataPath,
                 'data-original-name': link.name,
+                'data-original-hints': JSON.stringify(link.hints || []),
+                'data-original-description': link.description || '',
                 'data-title': title,
                 'data-target': link.target
               });
@@ -560,6 +847,331 @@
         }
       });
     </script>
+
+    <script type="text/javascript">
+      // Context Menu & Hint Modal functionality
+      const $contextMenu = $('#contextMenu');
+      const $hintModal = $('#hintModal');
+      const $hintModalTitle = $('#hintModalTitle');
+      const $hintModalBody = $('#hintModalBody');
+      let currentContextItem = null;
+
+      // Close context menu button
+      $('#closeContextMenu').on('click', function (e) {
+        e.stopPropagation();
+        $contextMenu.hide();
+      });
+
+      // Hide context menu when clicking anywhere
+      $(document).on('click', function () {
+        $contextMenu.hide();
+      });
+
+      // Prevent context menu from closing when clicking inside it
+      $contextMenu.on('click', function (e) {
+        e.stopPropagation();
+      });
+
+      // Hide context menu when clicking anywhere
+      $(document).on('click', function () {
+        $contextMenu.hide();
+      });
+
+      // Prevent context menu from closing when clicking inside it
+      $contextMenu.on('click', function (e) {
+        e.stopPropagation();
+      });
+
+      // Close modal
+      $('#closeHintModal, #hintModal').on('click', function (e) {
+        try {
+          if (e.target.parentNode === this) {
+            $hintModal.removeClass('show');
+          }
+        } catch (error) {
+          console.log("🚀 QuyNH: error", error)
+        }
+      });
+
+      // ESC key to close modal
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape') {
+          $hintModal.removeClass('show');
+          $contextMenu.hide();
+        }
+      });
+
+      // Show Hint menu item
+      $('#showHintMenuItem').on('click', function () {
+        if (currentContextItem) {
+          const hints = $(currentContextItem).data('original-hints');
+          const linkName = $(currentContextItem).data('original-name');
+          const linkPath = $(currentContextItem).data('path');
+          const linkTitle = $(currentContextItem).data('title');
+          const linkDescription = $(currentContextItem).data('original-description');
+          showHintModal(linkName, linkPath, linkTitle, hints, linkDescription);
+        }
+        $contextMenu.hide();
+      });
+
+      // Open DevTools menu item
+      $('#openDevToolsMenuItem').on('click', function () {
+        if (currentContextItem) {
+          const path = $(currentContextItem).data('path');
+          const fullUrl = new URL(path, window.location.href).href;
+
+          // Open Chii DevTools with the target URL
+          const chiiUrl = `https://chii.liriliri.io/?url=${encodeURIComponent(fullUrl)}`;
+          window.open(chiiUrl, '_blank');
+        }
+        $contextMenu.hide();
+      });
+
+      // Open in New Tab menu item
+      $('#openNewTabMenuItem').on('click', function () {
+        if (currentContextItem) {
+          const path = $(currentContextItem).data('path');
+          window.open(path, '_blank');
+        }
+        $contextMenu.hide();
+      });
+
+      // Copy Link menu item
+      $('#copyLinkMenuItem').on('click', function () {
+        if (currentContextItem) {
+          const path = $(currentContextItem).data('path');
+          // Create full URL
+          const fullUrl = new URL(path, window.location.href).href;
+
+          // Copy to clipboard
+          navigator.clipboard.writeText(fullUrl).then(() => {
+            // Show success feedback
+            const $copyItem = $('#copyLinkMenuItem span');
+            const originalText = $copyItem.text();
+            $copyItem.html('<i class="fas fa-check"></i> Copied!');
+            setTimeout(() => {
+              $copyItem.text(originalText);
+            }, 1500);
+          }).catch(err => {
+            console.error('Failed to copy:', err);
+            alert('Failed to copy link');
+          });
+        }
+        $contextMenu.hide();
+      });
+
+      // Function to show hint modal (updated with path and title)
+      function showHintModal(linkName, linkPath, linkTitle, hints, linkDescription) {
+        $hintModalTitle.text(`Details: ${linkName}`);
+
+        // Build metadata section
+        let metadataHtml = `
+      <div class="hint-metadata">
+        <div class="hint-metadata-item">
+          <div class="hint-metadata-label">Name:</div>
+          <div class="hint-metadata-value"><strong>${linkName}</strong></div>
+        </div>
+        <div class="hint-metadata-item">
+          <div class="hint-metadata-label">Title:</div>
+          <div class="hint-metadata-value">${linkTitle || '<em>N/A</em>'}</div>
+        </div>
+        <div class="hint-metadata-item">
+          <div class="hint-metadata-label">Path:</div>
+          <div class="hint-metadata-value">
+            <a href="${linkPath}" target="_blank" class="hint-metadata-link">
+              ${linkPath} <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hint-metadata-item">
+          <div class="hint-metadata-label">Description:</div>
+          <div class="hint-metadata-value">${linkDescription || '<em>N/A</em>'}</div>
+        </div>
+      </div>
+    `;
+
+        // Build hints table
+        let hintsHtml = '';
+        if (!hints || hints.length === 0) {
+          hintsHtml = `
+        <div class="no-hints-message">
+          <i class="fas fa-info-circle" style="font-size: 2.5rem; margin-bottom: 12px; display: block; color: #bfcada;"></i>
+          <p>No additional hints available for this item.</p>
+        </div>
+      `;
+        } else {
+          hintsHtml = `
+        <h5 style="margin-top: 8px; margin-bottom: 16px; font-size: 1.05rem; color: #182433; font-weight: 600;">
+          <i class="fas fa-lightbulb" style="color: #3467eb; margin-right: 8px;"></i>Hints & References
+        </h5>
+        <table class="hint-table">
+          <thead>
+            <tr>
+              <th style="width: 60px;">#</th>
+              <th>Hint / Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+          // Iterate over hints and build rows with URL detection
+          hints.forEach((hint, index) => {
+            // Check if hint contains a URL, simple regex
+            const urlRegex = /(https?:\/\/[^\s]+)/g;
+            const hasUrl = urlRegex.test(hint);
+
+            // Replace URLs in hint with clickable links
+            let hintContent = hint;
+
+            // If hint contains URLs, convert them to links
+            if (hasUrl) {
+              hintContent = hint.replace(urlRegex, (url) => {
+                return `<a href="${url}" target="_blank" class="hint-link">
+                ${url}
+                <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
+              </a>`;
+              });
+            }
+
+            // Append row to table
+            hintsHtml += `
+          <tr>
+            <td style="font-weight: 600; color: #3467eb;">${index + 1}</td>
+            <td>${hintContent}</td>
+          </tr>
+        `;
+          });
+
+          hintsHtml += `
+          </tbody>
+        </table>
+      `;
+        }
+
+        $hintModalBody.html(metadataHtml + hintsHtml);
+        $hintModal.addClass('show');
+      }
+
+      // Update renderList function to handle context menu
+      function renderList(filter = '') {
+        $urlList.empty();
+        allLinkElements = [];
+        const filterLower = filter.trim().toLowerCase();
+
+        urls.forEach((group) => {
+          // Filter by group name or links name
+          const groupMatch = group.group.toLowerCase().includes(filterLower);
+          const filteredLinks = group.links.filter(link =>
+            link.name.toLowerCase().includes(filterLower)
+            || (link.title && link.title.toLowerCase().includes(filterLower))
+            || (link.path && link.path.toLowerCase().includes(filterLower))
+            || (link.description && link.description.toLowerCase().includes(filterLower))
+          );
+          if (!groupMatch && filteredLinks.length === 0)
+            return;
+
+          const groupId = `group-${group.group_id}`;
+          const $groupContainer = $('<div class="mb-2"></div>');
+          const $groupTitle = $(`<div class="group-title collapsed" id="${groupId}" role="button" tabindex="0">
+      <span>${group.group}</span>
+      <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+    </div>`);
+          const $linksContainer = $('<div class="link-list"></div>');
+
+          (groupMatch ? group.links : filteredLinks).forEach(link => {
+            let dataPath = link.path;
+            dataPath += dataPath.includes('?') ? '&' + queryParams : '?' + queryParams;
+
+            const isExternal = (link.target === '_blank');
+            const title = link.title || link.name;
+
+            const $linkItem = $(`<div class="list-group-item${isExternal ? '' : ''}" title="${title}" tabindex="0">
+        ${isExternal ? '<span class="external"><i class="fas fa-external-link-alt"></i></span>' : ''}
+        <span class="link-text">${link.name}</span>
+      </div>`)
+              .attr({
+                'data-path': dataPath,
+                'data-original-name': link.name,
+                'data-original-hints': JSON.stringify(link.hints || []),
+                'data-original-description': link.description || '',
+                'data-title': title,
+                'data-target': link.target,
+                'data-hints': JSON.stringify(link.hint || [])
+              });
+
+            // Tooltip
+            $linkItem.tooltip({ placement: 'right', trigger: 'hover', title: title, boundary: 'window', delay: { show: 500, hide: 30 } });
+
+            // Click event
+            $linkItem.on('click keypress', function (e) {
+              if (e.type === 'click' || (e.type === 'keypress' && (e.which === 13 || e.which === 32))) {
+                if (isExternal) {
+                  window.open(dataPath, '_blank');
+                } else {
+                  $iframe.attr('src', dataPath);
+                  $('.list-group-item').removeClass('active').find('.link-text').text(function () { return $(this).closest('.list-group-item').data('original-name') });
+                  $linkItem.addClass('active').find('.link-text').text(`🔵 ${link.name}`);
+                  localStorage.setItem('lastOpenedUrl', dataPath);
+                }
+              }
+            });
+
+            // Context menu event
+            $linkItem.on('contextmenu', function (e) {
+              e.preventDefault();
+
+              currentContextItem = this;
+
+              // Position context menu
+              $contextMenu.css({
+                top: e.pageY + 'px',
+                left: e.pageX + 'px'
+              }).show();
+
+              // Adjust position if menu goes off screen
+              const menuWidth = $contextMenu.outerWidth();
+              const menuHeight = $contextMenu.outerHeight();
+              const windowWidth = $(window).width();
+              const windowHeight = $(window).height();
+
+              if (e.pageX + menuWidth > windowWidth) {
+                $contextMenu.css('left', (e.pageX - menuWidth) + 'px');
+              }
+
+              if (e.pageY + menuHeight > windowHeight) {
+                $contextMenu.css('top', (e.pageY - menuHeight) + 'px');
+              }
+
+              return false;
+            });
+
+            $linksContainer.append($linkItem);
+            allLinkElements.push({ element: $linkItem[0], path: dataPath });
+          });
+
+          // Group collapse toggle
+          $groupTitle.on('click keypress', function (e) {
+            if (e.type === 'click' || (e.type === 'keypress' && (e.which === 13 || e.which === 32))) {
+              const isExpanded = $groupTitle.hasClass('expanded');
+              $('.group-title.expanded').not(this).removeClass('expanded').addClass('collapsed')
+                .next('.link-list').slideUp(170);
+              $groupTitle.toggleClass('expanded collapsed');
+              $linksContainer.stop(true).slideToggle(190);
+            }
+          });
+
+          $groupTitle.on('focus', function () { $(this).css('outline', '2px solid #3467eb22'); });
+          $groupTitle.on('blur', function () { $(this).css('outline', 'none'); });
+
+          $groupContainer.append($groupTitle).append($linksContainer.hide());
+          $urlList.append($groupContainer);
+        });
+
+        const $firstOpen = $urlList.find('.group-title').first();
+        $firstOpen.addClass('expanded').removeClass('collapsed').next('.link-list').show();
+      }
+    </script>
+
   </body>
 
 </html>
