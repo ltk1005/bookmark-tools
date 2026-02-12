@@ -75,26 +75,7 @@ npx serve .
 
 ### Thêm URL mới
 
-Chỉnh sửa file `root-urls.js` để thêm các URL mới:
-
-```javascript
-const urls = [
-  {
-    group: "🛠️ Online Tools",
-    group_id: "online_tools",
-    links: [
-      {
-        name: "Tên hiển thị",
-        path: "https://example.com",
-        title: "Mô tả tooltip",
-        target: '_blank', // Mở trong tab mới (tùy chọn)
-      },
-      // Thêm nhiều liên kết khác...
-    ]
-  },
-  // Thêm nhiều nhóm khác...
-];
-```
+Chỉnh sửa file `root-urls.js` để thêm các URL mới. Xem phần "Ví dụ cấu hình đầy đủ" bên dưới để biết cách sử dụng tất cả các thuộc tính.
 
 ### Cấu hình các thuộc tính
 
@@ -109,6 +90,33 @@ const urls = [
 | `description` | Mô tả chi tiết (hiển thị trong hint modal) | ❌ |
 | `hints` | Mảng các gợi ý/lưu ý bổ sung | ❌ |
 | `target` | Mở trong tab mới (`_blank`) hoặc iframe | ❌ |
+
+### Ví dụ cấu hình đầy đủ
+
+```javascript
+const urls = [
+  {
+    group: "🛠️ Online Tools",
+    group_id: "online_tools",
+    links: [
+      {
+        name: "Tên hiển thị",
+        path: "https://example.com",
+        title: "Mô tả ngắn gọn hiển thị khi hover",
+        description: "Mô tả chi tiết về công cụ này, hiển thị trong hint modal",
+        hints: [
+          "Gợi ý 1: Sử dụng cho mục đích X",
+          "Gợi ý 2: Lưu ý về Y",
+          "Gợi ý 3: Tính năng đặc biệt Z"
+        ],
+        target: '_blank', // Mở trong tab mới (tùy chọn)
+      },
+      // Thêm nhiều liên kết khác...
+    ]
+  },
+  // Thêm nhiều nhóm khác...
+];
+```
 
 ## 🛠️ Công nghệ sử dụng
 
