@@ -5,12 +5,6 @@ const urls = [
     group_id: "online_tools",
     links: [
       {
-        name: "YouTube miễn phí",
-        path: "https://www.clipto.com/vi/media-downloader/youtube-downloader",
-        title: "Trình tải xuống video YouTube miễn phí",
-        target: '_blank',
-      },
-      {
         name: "Trình tải xuống video YouTube",
         path: "https://yt5s.rip/vi11/",
         title: "Trình tải xuống video YouTube trực tuyến miễn phí tại yt5s.best",
