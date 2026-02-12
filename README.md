@@ -19,10 +19,12 @@ Một ứng dụng web đơn giản giúp quản lý và truy cập nhanh danh s
 
 Truy cập ứng dụng tại: [https://ltk1005.github.io/bookmark-tools/](https://ltk1005.github.io/bookmark-tools/)
 
+<!-- 
 ### Screenshots
 
 ![Bookmark Tools Interface](assets/imgs/screenshot.png)
 > _Giao diện chính của Bookmark Tools với sidebar, tìm kiếm và iframe viewer_
+-->
 
 ## 📦 Cài đặt
 
