@@ -1,15 +1,33 @@
 // root-urls.js
+
+/**
+ * @typedef {Object} LinkItem
+ * @description Individual link item with metadata
+ * @author QuyIT Platform
+ * @property {string} name // e.g., display name
+ * @property {string} path // e.g., URL or relative path
+ * @property {string} [title] // e.g., tooltip text
+ * @property {string} [description] // e.g., brief description
+ * @property {string} [target] // e.g., "_blank"
+ * @property {string[]} [hints] // Additional hints or notes
+ */
+
+/**
+ * @typedef {Object} UrlGroup
+ * @description Group of URLs with metadata and links
+ * @author QuyIT Platform
+ * @version 1.0.0
+ * @property {string} group // e.g., group name
+ * @property {string} group_id // e.g., group identifier
+ * @property {LinkItem[]} links // Array of link items
+ */
+
+/** @type {UrlGroup[]} */
 const urls = [
   {
     group: "🛠️ Online Tools",
     group_id: "online_tools",
     links: [
-      {
-        name: "YouTube miễn phí",
-        path: "https://www.clipto.com/vi/media-downloader/youtube-downloader",
-        title: "Trình tải xuống video YouTube miễn phí",
-        target: '_blank',
-      },
       {
         name: "Trình tải xuống video YouTube",
         path: "https://yt5s.rip/vi11/",
