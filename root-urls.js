@@ -25,6 +25,18 @@
 /** @type {UrlGroup[]} */
 const urls = [
   {
+    group: "AI Tools",
+    group_id: "ai_tools",
+    links: [
+      {
+        name: "VNSeo | SEO và tools",
+        path: "https://vnseo.com/",
+        title: "DevToolkit - Free Developer Utilities & Global Tech Trends | All-in-One Developer Platform",
+        // target: '_blank',
+      }
+    ],
+  },
+  {
     group: "🛠️ Online Tools",
     group_id: "online_tools",
     links: [
